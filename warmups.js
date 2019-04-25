@@ -53,3 +53,24 @@ function jumpingOnClouds(c) {
   }
   return jumps;
 }
+
+function repeatedString(s, n) {
+  let extras = n % s.length;
+  let count = 0;
+  let sub = 0;
+  if (extras !== 0) {
+    for (let i = 0; i < extras; i++) {
+      if (s[i] === 'a') count += 1;
+    }
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'a') sub += 1;
+  }
+  if (n <= s.length) {
+    return count;
+  } else {
+    count += (Math.floor(n / s.length) * sub)
+    return count;
+  }
+}
