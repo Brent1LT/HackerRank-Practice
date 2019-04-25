@@ -20,6 +20,22 @@ function sockMerchant(n, ar) {
   return result;
 }
 
+function countingValleys(n, s) {
+  let move = { 'U': 1, 'D': -1 };
+  let prevStep = 0;
+  let seaLevel = 0;
+  let valley = 0;
+  for (let i = 0; i < s.length; i++) {
+    seaLevel += move[s[i]];
+    if (seaLevel === -1 && prevStep === 0) {
+      valley += 1;
+    }
+    prevStep = seaLevel;
+  }
+
+  return valley;
+}
+
 function jumpingOnClouds(c) {
   let jumps = 0;
   let skip = false;
