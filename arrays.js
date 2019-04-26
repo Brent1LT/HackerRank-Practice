@@ -106,4 +106,21 @@ function minimumSwaps(arr) {
 }
 
 //HARD
+//correct answer but too slow
+
+// function arrayManipulation(n, queries) {
+//   let arr = Array(n).fill(0);
+//   let max = 0;
+//   queries.forEach(query => {
+//     let temp = arr.slice(query[0] - 1, query[1]).map(el => el + query[2]);
+//     arr = arr.slice(0, query[0] - 1).concat(temp).concat(arr.slice(query[1]))
+//   });
+//   console.log(arr);
+//   for (let k = 0; k < arr.length; k++) {
+//     max = Math.max(max, arr[k]);
+//   }
+
+//   return max;
+// }
+
 
