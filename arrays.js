@@ -35,3 +35,53 @@ function rotLeft(a, d) {
   let ending = a.slice(0, shift)
   return shifted.concat(ending)
 }
+
+// function minimumBribes(q) {
+//   let swaps = 0;
+//   let broken = false;
+//   for (let j = 0; j < q.length; j++) {
+//     let diff = q[j] - j;
+//     if (diff > 3) {
+//       broken = true;
+//     } else if (diff > 0) {
+//       swaps += diff - 1;
+//     }else if(diff < -2){
+//       swaps += Math.abs(diff) - 2;
+//     }
+//   }
+//   if (broken) {
+//     console.log('Too chaotic');
+//   } else {
+//     console.log(swaps);
+//   }
+// }
+
+//attempt 2
+//this one works!
+function minimumBribes(q) {
+  let swaps = 0;
+  let sorted = false;
+  let chaos = false;
+  while (!sorted) {
+    sorted = true;
+    for (let i = 0; i < q.length; i++) {
+      if (q[i + 1] === q.length) continue;
+      if (q[i] - i > 3) {
+        chaos = true;
+        break;
+      }
+      if (q[i] > q[i + 1]) {
+        swaps += 1;
+        sorted = false;
+        let temp = q[i];
+        q[i] = q[i + 1];
+        q[i + 1] = temp;
+      }
+    }
+  }
+  if (chaos) {
+    console.log('Too chaotic');
+  } else {
+    console.log(swaps);
+  }
+}
