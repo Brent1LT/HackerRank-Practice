@@ -85,3 +85,25 @@ function minimumBribes(q) {
     console.log(swaps);
   }
 }
+
+function minimumSwaps(arr) {
+  let sorted = false;
+  let swaps = 0;
+  while (!sorted) {
+    sorted = true;
+    for (let i = 0; i < arr.length; i++) {
+      let current = arr[i]
+      if (i !== (current - 1)) {
+        swaps += 1;
+        let temp = arr[current - 1];
+        arr[current - 1] = arr[i];
+        arr[i] = temp;
+        sorted = false;
+      }
+    }
+  }
+  return swaps;
+}
+
+//HARD
+
