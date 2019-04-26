@@ -123,4 +123,26 @@ function minimumSwaps(arr) {
 //   return max;
 // }
 
+// actual answer, still don't fully understand
+
+function arrayManipulation(n, queries) {
+  let arr = Array(n).fill(0);
+  let max = 0;
+  queries.forEach(query => {
+    arr[query[0] - 1] += query[2];
+    if (query[1] < arr.length) {
+      arr[query[1]] -= query[2];
+    }
+  });
+
+  for (let i = 1; i < arr.length; i++) {
+    arr[i] += arr[i - 1];
+  }
+  console.log(arr);
+  for (let k = 0; k < arr.length; k++) {
+    max = Math.max(max, arr[k]);
+  }
+
+  return max;
+}
 
