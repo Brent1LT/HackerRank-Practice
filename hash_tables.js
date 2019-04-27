@@ -27,3 +27,24 @@ function createHash(arr) {
   return hash;
 }  
 
+function twoStrings(s1, s2) {
+  console.log(s1, s2)
+  let string1 = s1.split('');
+  let string2 = s2.split('');
+  let hash = createSubset(string1);
+
+  for (let i = 0; i < string2.length; i++) {
+    if (hash[string2[i]]) {
+      return 'YES';
+    }
+  }
+  return 'NO';
+}
+
+function createSubset(arr) {
+  let hash = {};
+  for (let i = 0; i < arr.length; i++) {
+    hash[arr[i]] = true;
+  }
+  return hash;
+}
