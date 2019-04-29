@@ -63,18 +63,15 @@ function largestConnectedComponent(size, filledInSpaces) {
   }
 
   for (let i = 0; i < filledInSpaces.length; i++) {
-    // console.log(filledInSpaces[i], visited, visited[filledInSpaces[i]])
     if (!visited[filledInSpaces[i]]) {
       currentCount = 0;
       q.push(filledInSpaces[i]);
       while (q.length > 0) {
-        // visited[filledInSpaces[i]] = true; 
         let current = q.shift();
-        if(visited[current]) continue;
+        // if(visited[current]) continue;
         currentCount += 1;
         visited[current] = true;
         let neighbors = checkAdjacent(current, shaded, visited);
-        // console.log(q)
         q.push(...neighbors);
       }
       result = currentCount > result ? currentCount : result;
