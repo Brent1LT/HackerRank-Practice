@@ -68,7 +68,7 @@ function largestConnectedComponent(size, filledInSpaces) {
       q.push(filledInSpaces[i]);
       while (q.length > 0) {
         let current = q.shift();
-        // if(visited[current]) continue;
+        if(visited[current]) continue;
         currentCount += 1;
         visited[current] = true;
         let neighbors = checkAdjacent(current, shaded, visited);
