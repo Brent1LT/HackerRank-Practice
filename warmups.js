@@ -74,3 +74,4 @@ function repeatedString(s, n) {
     return count;
   }
 }
+
