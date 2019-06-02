@@ -88,3 +88,19 @@ end
 # p anti_prime?(72)
 
 # puts find_divisors(72).length
+
+def change_arr(arr)
+  arr << 4
+end 
+
+# arr = [1,2,3]
+# change_arr(arr)
+# p arr
+
+def change_num(num)
+  num += 10
+end 
+
+# num = 10
+# change_num(num)
+# p num
