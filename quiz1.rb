@@ -12,9 +12,21 @@ def change_num(num)
   num += 10
 end 
 
-# num = 10
-# change_num(num)
+num = 10
+change_num(num)
+p num
+# p num.object_id
+# num += 10
 # p num
+# p num.object_id
+
+def change_str(string)
+  string << '-mutated'
+end 
+
+# string = 'banana'
+# change_str(string)
+# p string
 
 def prime?(num)
   return false if num < 2
