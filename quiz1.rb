@@ -1,5 +1,21 @@
 require 'byebug'
 
+def change_arr(arr)
+  arr << 4
+end 
+
+# arr = [1,2,3]
+# change_arr(arr)
+# p arr
+
+def change_num(num)
+  num += 10
+end 
+
+# num = 10
+# change_num(num)
+# p num
+
 def prime?(num)
   return false if num < 2
   (2...num).each do |i|
@@ -31,10 +47,12 @@ def save_last_vowels(sentence)
   words = sentence.split(' ')
   last_vowel = []
   vowels = 'aeiou'
+
   words.each do |word|
     reversed = word.reverse
     count = 0
     new_word = ''
+
     reversed.each_char do |char|
       if vowels.include?(char)
         if count == 0 
@@ -47,8 +65,10 @@ def save_last_vowels(sentence)
         new_word += char 
       end 
     end 
+
     last_vowel << new_word.reverse
   end 
+
   last_vowel.join(" ")
 end
 
@@ -89,18 +109,3 @@ end
 
 # puts find_divisors(72).length
 
-def change_arr(arr)
-  arr << 4
-end 
-
-# arr = [1,2,3]
-# change_arr(arr)
-# p arr
-
-def change_num(num)
-  num += 10
-end 
-
-# num = 10
-# change_num(num)
-# p num
