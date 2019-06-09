@@ -14,7 +14,7 @@ end
 
 num = 10
 change_num(num)
-p num
+# p num
 # p num.object_id
 # num += 10
 # p num
@@ -70,8 +70,6 @@ def save_last_vowels(sentence)
         if count == 0 
           new_word += char 
           count += 1
-        else
-          next
         end 
       else
         new_word += char 
@@ -102,11 +100,11 @@ def anti_prime?(num)
 end
 
 def find_divisors(num)
-    divisors = []
-    (1..num).each do |i|
-        divisors << i if num % i == 0
-    end 
-    divisors
+  divisors = []
+  (1..num).each do |i|
+    divisors << i if num % i == 0
+  end 
+  divisors
 end 
 
 # p anti_prime?(6)
