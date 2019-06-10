@@ -78,7 +78,7 @@ class Score {
 
   delete(idx) {
     this.array = this.array.slice(0, idx).concat(this.array.slice(idx + 1));
-    this.array.push(0);
+    if (this.array[this.size - 1] !== 0) this.array.push(0);
     this.size = this.array.length;
   }
 
