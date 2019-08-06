@@ -78,17 +78,21 @@ function repeatedString(s, n) {
 function maxStep(n, k) {
   // Write your code here
   let current = 0;
-  let skip = 0;
+  let skip = false;
   for (let step = 1; step <= n; step++) {
-    if (skip === step) continue;
     if (current + step === k) {
       current = 0;
-      skip += 1;
-      step = 0;
+      skip = true;
+      break;
     } else {
       current += step;
     }
   }
 
+  if (skip) {
+    for (let step = 2; step <= n; step++) {
+      current += step;
+    }
+  }
   return current;
 }
