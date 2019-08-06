@@ -96,3 +96,29 @@ function maxStep(n, k) {
   }
   return current;
 }
+
+function closestNumbers(numbers) {
+  // Write your code here
+  let min = Infinity;
+  let answer = [];
+  numbers.sort((a, b) => a - b);
+  for (let i = 1; i < numbers.length - 1; i++) {
+    let current = numbers[i];
+    let prev = numbers[i - 1];
+    let next = numbers[i + 1];
+    if (Math.abs(current - prev) < min) min = Math.abs(current - prev);
+    if (Math.abs(next - current) < min) min = Math.abs(next - current);
+  }
+
+  for (let i = 1; i < numbers.length; i++) {
+    let current = numbers[i];
+    let prev = numbers[i - 1];
+    if (Math.abs(current - prev) === min) answer.push([prev, current]);
+  }
+
+  for (let i = 0; i < answer.length; i++) {
+    let ans = answer[i];
+    console.log(`${ans[0]} ${ans[1]}`)
+  }
+  // return answer;
+}
