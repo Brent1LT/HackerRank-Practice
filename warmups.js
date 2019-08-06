@@ -75,3 +75,20 @@ function repeatedString(s, n) {
   }
 }
 
+function maxStep(n, k) {
+  // Write your code here
+  let current = 0;
+  let skip = 0;
+  for (let step = 1; step <= n; step++) {
+    if (skip === step) continue;
+    if (current + step === k) {
+      current = 0;
+      skip += 1;
+      step = 0;
+    } else {
+      current += step;
+    }
+  }
+
+  return current;
+}
