@@ -122,3 +122,33 @@ function closestNumbers(numbers) {
   }
   // return answer;
 }
+
+function investment(s, e) {
+  // Write your code here
+  let ranges = [];
+  for (let i = 0; i < s.length; i++) {
+    ranges.push([s[i], e[i]]);
+  }
+
+  // sort ranges by smallest window
+  ranges.sort((a, b) => {
+    let first = a[1] - a[0];
+    let second = b[1] - b[0];
+    return first - second;
+  })
+
+  let set = new Set();
+  for (let i = 0; i < ranges.length; i++) {
+    let current = ranges[i];
+    let created = false;
+    for (let j = current[0]; j <= current[1]; j++) {
+      if (created) break;
+      if (!set.has(j)) {
+        set.add(j);
+        created = true;
+      }
+    }
+  }
+
+  return set.size
+}
