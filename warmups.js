@@ -152,3 +152,40 @@ function investment(s, e) {
 
   return set.size
 }
+
+
+const countTopicOccurences = function countTopicOccurences(topics, reviews) {
+  // Complete me
+  let edit = reviews.map(ele => ele.toLowerCase())
+  let result = {};
+
+  for (let key in topics) {
+    let current = topics[key].map(ele => ele.toLowerCase());
+    let count = 0;
+    for (let j = 0; j < edit.length; j++) {
+      for (let i = 0; i < current.length; i++) {
+        let item = current[i];
+        if (edit[j].includes(item)) {
+          count += 1;
+          break;
+        }
+      }
+    }
+    result[key] = count
+  }
+  return result;
+}
+
+//ex input:
+// topics: {
+//   "Price": ['cheap', 'expensive', 'price'],
+//   'Business specialties': ['gnome', 'gnomes'],
+//   'Harry Schrub': ['harry schrub']
+// }
+
+// reviews: [
+//   'Harry Schrub did a great job with my garden, but I expected more gnomes for the price',
+//   'I love my new gnomes, they are so cute! My dog loves them too! Thanks Harry',
+//   "Very expensive at fifty dollars per gnome. Next time I'll buy from Cheap Gnomes Warehouse"
+// ]
+
